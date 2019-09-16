@@ -6,7 +6,6 @@ import './App.css';
 
 const initialState = {
   content: [],
-  currentPage: "https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1",
   nextPage: ""
 }
 
@@ -18,14 +17,14 @@ class App extends Component {
   }
 
   componentWillMount = () =>{
-    this.loadFromApi(this.state.currentPage)
+    this.loadFromApi("https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1")
   }
 
   loadFromApi = (url) =>{
     fetch(url)
     .then(res => res.json())
     .then(data => {
-      this.setState({content: data.products, nextPage: data.nextPage})
+      this.setState({content: this.state.content.concat(data.products), nextPage: "https://"+data.nextPage})
       console.log(data)
     });
   }
@@ -55,18 +54,21 @@ class App extends Component {
             {this.state.content.map(product => {
               return(
                 <Card>
-                  <CardImg top width="100%" src="//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6747399" alt="Card image cap" />
+                  <CardImg top width="100%" src={product.image} alt="Card image cap" />
                   <div className="card-content">
-                    <CardTitle>Nome do produto</CardTitle>
-                    <CardText>Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.</CardText>
-                    <CardSubtitle>De: R$23,99</CardSubtitle>
-                    <CardSubtitle>Por: R$19,99</CardSubtitle>
-                    <CardSubtitle>ou 2x de R$9,99</CardSubtitle>
+                    <CardTitle>{product.name}</CardTitle>
+                    <CardText>{product.description}</CardText>
+                    <CardSubtitle>De: R${product.oldPrice}</CardSubtitle>
+                    <CardSubtitle>Por: R${product.price}</CardSubtitle>
+                    <CardSubtitle>ou {product.installments.count}x de R${product.installments.value}</CardSubtitle>
                     <Button className="card-button">Comprar</Button>
                   </div>
                 </Card>
               )
             })}
+              <Row>
+                <Button onClick={() => this.loadFromApi(this.state.nextPage)}>Ainda mais produtos aqui!</Button>
+              </Row>
             </div>
           </Row>
           <Row className="newsletter-container">
@@ -82,7 +84,7 @@ class App extends Component {
                 </FormGroup>
                 <FormGroup className="newsletter-input">
                   <Label>E-mail:</Label>
-                  <Input></Input>
+                  <Input type="email"></Input>
                 </FormGroup>
               </Row>
               <Row>
