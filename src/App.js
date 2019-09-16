@@ -5,11 +5,29 @@ import './App.css';
 
 const initialState = {
   content: [],
+  currentPage: "https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1",
   nextPage: ""
 }
 
-
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = initialState;
+  }
+
+  componentWillMount = () =>{
+    this.loadFromApi(this.state.currentPage)
+  }
+
+  loadFromApi = (url) =>{
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      this.setState({content: data.products, nextPage: data.nextPage})
+    });
+  }
+
   render() {
     return (
       <div>
@@ -32,6 +50,8 @@ class App extends Component {
           </Row>
           <Row>
             <div className="content">
+
+
             </div>
           </Row>
           <Row className="newsletter-container">
