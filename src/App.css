@@ -59,7 +59,7 @@ div .row{
 }
 
 .newsletter-input.form-group{
-  margin: 30px 15px;
+  margin: 30px 15px 50px 15px;
 }
 
 .card > img{
@@ -119,9 +119,6 @@ div {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.card-content{
-  font-size: 12px;
-}
 .card-content >.card-title{
   margin-top: 14px;
   font-size: 14px;
@@ -151,7 +148,7 @@ div .card-subtitle{
   font-size: 14px;
 }
 
-.newsletter-input label{
+.newsletter-input label, .card-content{
   font-size: 12px;
 }
 

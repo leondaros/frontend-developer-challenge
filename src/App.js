@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button ,Navbar ,Container, Row, Label, FormGroup, Input, Card, CardImg, CardText,
+import { Button ,Navbar ,Container, Row, Label, Form, FormGroup, Input, Card, CardImg, CardText,
   CardTitle, CardSubtitle} from 'reactstrap';
 import './App.css';
 
@@ -75,19 +75,21 @@ class App extends Component {
                 <p>Compartilhe a novidade</p>
                 <p>Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</p>
               </Row>
-              <Row>
-                <FormGroup className="newsletter-input">
-                  <Label>Nome do seu amigo:</Label>
-                  <Input></Input>
-                </FormGroup>
-                <FormGroup className="newsletter-input">
-                  <Label>E-mail:</Label>
-                  <Input type="email"></Input>
-                </FormGroup>
-              </Row>
-              <Row>
-                <Button className="default-button newsletter-button">Enviar agora</Button>
-              </Row>
+              <Form>
+                <Row>
+                  <FormGroup className="newsletter-input">
+                    <Label for="friendName">Nome do seu amigo:</Label>
+                    <Input id="friendName"></Input>
+                  </FormGroup>
+                  <FormGroup className="newsletter-input">
+                    <Label id="friendEmail">E-mail:</Label>
+                    <Input id="friendEmail" type="email"></Input>
+                  </FormGroup>
+                </Row>
+                <Row>
+                  <Button className="default-button newsletter-button">Enviar agora</Button>
+                </Row>
+              </Form>
             </div>
           </Row>
         </Container>
