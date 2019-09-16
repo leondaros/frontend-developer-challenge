@@ -26,6 +26,7 @@ class App extends Component {
     .then(res => res.json())
     .then(data => {
       this.setState({content: data.products, nextPage: data.nextPage})
+      console.log(data)
     });
   }
 
@@ -51,21 +52,21 @@ class App extends Component {
           </Row>
           <Row>
             <div className="content">
-            <Card>
-              <CardImg top width="100%" src="//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6747399" alt="Card image cap" />
-              <div className="card-content">
-                <CardTitle>Nome do produto</CardTitle>
-                <CardText>Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.</CardText>
-                <CardSubtitle>De: R$23,99</CardSubtitle>
-                <CardSubtitle>Por: R$19,99</CardSubtitle>
-                <CardSubtitle>ou 2x de R$9,99</CardSubtitle>
-                <Button className="card-button">Comprar</Button>
-              </div>
-              
-              {/* <CardBody className="card-content">
-                
-              </CardBody> */}
-            </Card>
+            {this.state.content.map(product => {
+              return(
+                <Card>
+                  <CardImg top width="100%" src="//imagens.pontofrio.com.br/Control/ArquivoExibir.aspx?IdArquivo=6747399" alt="Card image cap" />
+                  <div className="card-content">
+                    <CardTitle>Nome do produto</CardTitle>
+                    <CardText>Descrição do produto um pouco maior, com duas linhas ou três que explica melhor do que se trata.</CardText>
+                    <CardSubtitle>De: R$23,99</CardSubtitle>
+                    <CardSubtitle>Por: R$19,99</CardSubtitle>
+                    <CardSubtitle>ou 2x de R$9,99</CardSubtitle>
+                    <Button className="card-button">Comprar</Button>
+                  </div>
+                </Card>
+              )
+            })}
             </div>
           </Row>
           <Row className="newsletter-container">

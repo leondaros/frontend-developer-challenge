@@ -37,8 +37,15 @@ div .card{
   border: 0;
   max-width: 201px;
   max-height: 350px;
+  margin: 20px;
 }
 
 .card-content{
   font-size: 12px;
+}
+
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
