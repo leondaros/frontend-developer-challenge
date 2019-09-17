@@ -1,0 +1,37 @@
+.card-content >.card-title{
+    margin-top: 14px;
+    font-size: 14px;
+}
+  
+div .card-subtitle{
+    margin-bottom: 5px;
+}
+
+.card-content >.card-price{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-button.btn{
+    margin: 0;
+    padding: 0 12px;
+    width: -webkit-fill-available;
+    background-color: #fff;
+    color: #888888;
+    border-color: #707070;
+}
+
+.card > img{
+    border: solid 1px #707070;
+}
+
+div .card{
+    border: 0;
+    max-width: 201px;
+    max-height: 350px;
+    margin: 0 20px 40px 20px;
+}
+
+.card-content{
+    font-size: 12px;
+  }

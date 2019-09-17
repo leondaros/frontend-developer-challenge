@@ -11,8 +11,22 @@
   flex-direction: column;
 }
 
+.header .text-container{
+  margin-bottom: 50px;
+}
+
 .header.navbar{
   padding: 70px 16px 50px 16px;
+}
+
+.footer .text-container p{
+  margin: 0;
+  font-size: 12px;
+}
+
+.header .default-button{
+  width: 160px;
+  height: 40px;
 }
 
 div .row{
@@ -25,66 +39,14 @@ div .row{
   align-items: center;
 }
 
-.footer .text-container p{
-  margin: 0;
-  font-size: 12px;
-}
-
 .btn{
   margin: 0 20px;
-}
-
-.card-button.btn{
-  margin: 0;
-  padding: 0 12px;
-  width: -webkit-fill-available;
-  background-color: #fff;
-  color: #888888;
-  border-color: #707070;
-}
-
-.header .default-button{
-  width: 160px;
-  height: 40px;
 }
 
 .default-button.btn{
   background-color: #fff;
   color: #888888;
   border-color: #707070;
-}
-
-.next-button.btn{
-  margin: 30px;
-}
-
-.newsletter-input.form-group{
-  margin: 30px 15px 50px 15px;
-}
-
-.card > img{
-  border: solid 1px #707070;
-}
-
-div .card{
-  border: 0;
-  max-width: 201px;
-  max-height: 350px;
-  margin: 0 20px 40px 20px;
-}
-
-.content{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.newsletter-container{
-  margin: 150px 0;
-}
-
-.newsletter-button, .next-button{
-  width: 260px;
 }
 
 /* Text */
@@ -95,14 +57,11 @@ div .container{
 
 .text-container > h1{
   font-weight: bold;
+  text-align: center;
 }
 
 .header .text-container,.footer .text-container{
   color: #fff;
-}
-
-.header .text-container{
-  margin-bottom: 50px;
 }
 
 .header .text-container p:first-child{
@@ -119,40 +78,7 @@ div {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.card-content >.card-title{
-  margin-top: 14px;
-  font-size: 14px;
-}
-
-div .card-subtitle{
-  margin-bottom: 5px;
-}
-
-.card-content >.card-price{
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .container-title{
   margin: 50px;
   font-weight: bold;
-}
-
-.newsletter-container .text-container p:first-child{
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 44px;
-}
-
-.newsletter-container .text-container p:last-child{
-  font-size: 14px;
-}
-
-.newsletter-input label, .card-content{
-  font-size: 12px;
-}
-
-.newsletter-input input{
-  width: 340px;
-  border-radius: 0;
 }

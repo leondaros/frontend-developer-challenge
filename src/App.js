@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Button ,Navbar ,Container, Row, Label, Form, FormGroup, Input, Card, CardImg, CardText,
-  CardTitle, CardSubtitle} from 'reactstrap';
+import { Button ,Navbar ,Container, Row} from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Newsletter from './components/Newsletter/Newsletter'
+import Products from './components/Products/Products'
 
 const initialState = {
   content: [],
@@ -27,6 +30,18 @@ class App extends Component {
     });
   }
 
+  sendEmail = (event) =>{
+    toast.success('🚀 E-mail enviado!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+      });
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
@@ -37,7 +52,7 @@ class App extends Component {
             <p>Todos os produtos desta lista foram selecionados a partir da sua navegação. Aproveite!</p>
           </Row>
           <Row>
-            <Button className="default-button">Conheça a Linx</Button>
+            <Button href="https://www.linx.com.br/" className="default-button">Conheça a Linx</Button>
             <Button className="default-button">Ajude o algorítimo</Button>
             <Button className="default-button">Seus produtos</Button>
             <Button className="default-button">Compartilhe</Button>
@@ -48,49 +63,11 @@ class App extends Component {
             <p className="container-title">Sua seleção especial</p>
           </Row>
           <Row>
-            <div className="content">
-            {this.state.content.map((product,index) => {
-              return(
-                <Card key={product.id}>
-                  <CardImg top width="100%" src={product.image} alt="Card image cap" />
-                  <div className="card-content">
-                    <CardTitle>{product.name}</CardTitle>
-                    <CardText>{product.description}</CardText>
-                    <CardSubtitle>De: R${product.oldPrice}</CardSubtitle>
-                    <CardSubtitle className="card-price">Por: R${product.price}</CardSubtitle>
-                    <CardSubtitle>ou {product.installments.count}x de R${product.installments.value}</CardSubtitle>
-                    <Button className="card-button default-button">Comprar</Button>
-                  </div>
-                </Card>
-              )
-            })}
-              <Row>
-                <Button className="default-button next-button" onClick={() => this.loadFromApi(this.state.nextPage)}>Ainda mais produtos aqui!</Button>
-              </Row>
-            </div>
+            <Products list={this.state.content} nextPage={() =>this.loadFromApi(this.state.nextPage)}/>
           </Row>
           <Row>
-            <div className="newsletter-container">
-              <Row className="text-container">
-                <p>Compartilhe a novidade</p>
-                <p>Quer que seus amigos também ganhem a lista personalizada deles? Preencha agora!</p>
-              </Row>
-              <Form>
-                <Row>
-                  <FormGroup className="newsletter-input">
-                    <Label for="friendName">Nome do seu amigo:</Label>
-                    <Input id="friendName"></Input>
-                  </FormGroup>
-                  <FormGroup className="newsletter-input">
-                    <Label id="friendEmail">E-mail:</Label>
-                    <Input id="friendEmail" type="email"></Input>
-                  </FormGroup>
-                </Row>
-                <Row>
-                  <Button className="default-button newsletter-button">Enviar agora</Button>
-                </Row>
-              </Form>
-            </div>
+            <Newsletter sendEmail={this.sendEmail}/>
+            <ToastContainer />
           </Row>
         </Container>
         <Navbar className="footer">
