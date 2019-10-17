@@ -1,0 +1,31 @@
+.newsletter-container .text-container p:first-child{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 44px;
+}
+  
+.newsletter-container .text-container p:last-child{
+    font-size: 14px;
+    text-align: center;
+}
+
+.newsletter-input label, .card-content{
+    font-size: 12px;
+}
+
+.newsletter-input input{
+    width: 340px;
+    border-radius: 0;
+}
+
+.newsletter-input.form-group{
+    margin: 30px 15px 50px 15px;
+}
+
+.newsletter-container{
+    margin: 150px 0;
+  }
+  
+.newsletter-button, .next-button{
+    width: 260px;
+}

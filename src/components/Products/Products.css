@@ -1,0 +1,9 @@
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.next-button.btn{
+    margin: 30px;
+}
